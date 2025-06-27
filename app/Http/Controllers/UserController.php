@@ -15,8 +15,8 @@ class UserController extends Controller
         return view('user.artist',compact('artists'));
     }
 
-    public function songs (Request $request){
-        $songs = Songs::where('id_artist',$request->id)->get();
+    public function songs ($id){
+        $songs = Songs::where('id_artist',$id)->get();
         return view('user.songs',compact('songs'));
     }
 

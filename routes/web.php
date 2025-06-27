@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,5 +23,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/artists', [UserController::class, 'index'])->name('user.artists');
 Route::get('/genre', [UserController::class, 'genre'])->name('user.genre');
 Route::post('/songs/{id}', [UserController::class, 'songs'])->name('songs');
+Route::post('/genre/{id}', [GenreController::class, 'index'])->name('genre.artist');
 
 require __DIR__.'/auth.php';
