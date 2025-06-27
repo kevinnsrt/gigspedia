@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Artists;
 use App\Models\Songs;
+use App\Models\Genres;
+
 
 class UserController extends Controller
 {
@@ -16,5 +18,10 @@ class UserController extends Controller
     public function songs (Request $request){
         $songs = Songs::where('id_artist',$request->id)->get();
         return view('user.songs',compact('songs'));
+    }
+
+    public function genre(){
+        $genre = Genres::all();
+        return view('user.genre',compact('genre'));
     }
 }

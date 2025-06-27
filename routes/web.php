@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/artists', [UserController::class, 'index'])->name('user.artists');
+Route::get('/genre', [UserController::class, 'genre'])->name('user.genre');
 Route::post('/songs/{id}', [UserController::class, 'songs'])->name('songs');
 
 require __DIR__.'/auth.php';
