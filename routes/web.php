@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\PlaylistController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,8 +22,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/artists', [UserController::class, 'index'])->name('user.artists');
+Route::get('/playlist', [UserController::class, 'playlist'])->name('playlist');
+Route::get('/create/playlist', [PlaylistController::class, 'index'])->name('create.playlist');
 Route::get('/genre', [UserController::class, 'genre'])->name('user.genre');
 Route::post('/songs/{id}', [UserController::class, 'songs'])->name('songs');
 Route::post('/genre/{id}', [GenreController::class, 'index'])->name('genre.artist');
+Route::post('/create/playlist', [PlaylistController::class, 'store'])->name('create.playlist.store');
 
 require __DIR__.'/auth.php';

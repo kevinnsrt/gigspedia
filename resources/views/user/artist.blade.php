@@ -1,12 +1,12 @@
 <x-app-layout>
-    <div class="ml-32 flex justify-center mt-20">
+    <div class="ml-40 flex justify-center mt-20">
     <div>
         <h3 class="flex justify-center text-3xl font-bold mb-6 mt-4">Artists</h3>
         
         <div class="grid grid-cols-3 gap-4">
             @foreach ($artists as $item )
                 
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-sm max-h-fit bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img class="rounded-t-lg h-1/2 min-w-full" src="{{ $item->url_gambar }}" alt="" />
             </a>

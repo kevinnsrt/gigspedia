@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Artists;
 use App\Models\Songs;
 use App\Models\Genres;
+use App\Models\Playlist;
 
 
 class UserController extends Controller
@@ -23,5 +24,11 @@ class UserController extends Controller
     public function genre(){
         $genre = Genres::all();
         return view('user.genre',compact('genre'));
+    }
+
+    public function playlist(){
+
+        $playlists = Playlist::all();
+        return view('user.playlist',compact('playlists'));
     }
 }
