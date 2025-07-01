@@ -41,4 +41,27 @@ class PlaylistController extends Controller
         return view('playlist.playlist', compact('details'));
     }
 
+    public function add(Request $request){
+
+        $songs = PlaylistSongs::where('id_lagu',$request->id)->get();
+
+        if (!$songs) {
+            $playlist = PlaylistSongs::create([
+            'id_lagu'=>$request->id,
+            'id_playlist'=> $request->id_playlist,
+        ]);
+
+        return redirect()->route('playlist');
+        }
+        else{
+            return redirect()->route('user.artists')->with('error','Lagu sudah ada di playlist');
+        }
+    }
+
+    public function delete($id){
+        $playlist = Playlist::where('id',$id)->delete();
+
+        return redirect()->route('playlist')->with('delete','Playlist Berhasil Dihapus');
+    }
+
 }

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Artists;
 use App\Models\Songs;
 use App\Models\Genres;
+use App\Models\Artists;
 use App\Models\Playlist;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -18,7 +19,8 @@ class UserController extends Controller
 
     public function songs ($id){
         $songs = Songs::where('id_artist',$id)->get();
-        return view('user.songs',compact('songs'));
+        $playlists = Playlist::where('id_user',Auth::user()->id)->get();
+        return view('user.songs',compact('songs','playlists'));
     }
 
     public function genre(){

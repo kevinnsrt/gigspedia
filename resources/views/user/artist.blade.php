@@ -1,4 +1,15 @@
 <x-app-layout>
+
+    @session('error')
+        <script>
+        Swal.fire({
+        title: "Lagu gagal ditambahkan",
+        text: "Lagu sudah ada di playlist",
+        icon: "error"
+        });
+        </script>
+    @endsession
+
     <div class="ml-40 flex justify-center mt-20">
     <div>
         <h3 class="flex justify-center text-3xl font-bold mb-6 mt-4">Artists</h3>
