@@ -17,10 +17,13 @@
         <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
             @foreach ($playlists as $item)
                 <div>
+                    <form method="POST" action="{{ route('playlist.details',$item->id) }}">
+                        @csrf
                     <button>
                         <img class="h-auto max-w-56 rounded-lg hover:opacity-80" src="{{ asset('storage/'. $item->gambar) }}" alt="">
                         <p>{{  $item->name   }}</p>
                     </button>
+                    </form>
                 </div>
             @endforeach
             

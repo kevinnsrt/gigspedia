@@ -23,10 +23,12 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/artists', [UserController::class, 'index'])->name('user.artists');
 Route::get('/playlist', [UserController::class, 'playlist'])->name('playlist');
+Route::post('/playlist/details/{id}', [PlaylistController::class, 'details'])->name('playlist.details');
 Route::get('/create/playlist', [PlaylistController::class, 'index'])->name('create.playlist');
 Route::get('/genre', [UserController::class, 'genre'])->name('user.genre');
 Route::post('/songs/{id}', [UserController::class, 'songs'])->name('songs');
 Route::post('/genre/{id}', [GenreController::class, 'index'])->name('genre.artist');
+// Route::post('/add/{id}', [PlaylistController::class, 'add'])->name('add.songs');
 Route::post('/create/playlist', [PlaylistController::class, 'store'])->name('create.playlist.store');
 
 require __DIR__.'/auth.php';

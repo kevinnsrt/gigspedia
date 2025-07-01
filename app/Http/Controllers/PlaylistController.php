@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Playlist;
+use App\Models\PlaylistSongs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,4 +29,16 @@ class PlaylistController extends Controller
 
     return redirect()->route('playlist')->with('success','Playlist berhasil dibuat');
     }
+
+   public function details($id)
+    {
+        $details = PlaylistSongs::with(
+            [
+                'playlist',
+                'songs',
+            ]
+        )->where('id_playlist',$id)->get();
+        return view('playlist.playlist', compact('details'));
+    }
+
 }
