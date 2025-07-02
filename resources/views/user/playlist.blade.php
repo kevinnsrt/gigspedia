@@ -9,11 +9,31 @@
     </script>
     @endsession
 
+    @session('lagu')
+        <script>
+        Swal.fire({
+        title: "Success",
+        text: "Lagu berhasil ditambahkan",
+        icon: "success"
+        });
+    </script>
+    @endsession
+
     @session('delete')
         <script>
         Swal.fire({
         title: "Success",
         text: "Playlist berhasil dihapus",
+        icon: "success"
+        });
+    </script>
+    @endsession
+
+    @session('deleteLagu')
+        <script>
+        Swal.fire({
+        title: "Success",
+        text: "Lagu berhasil dihapus",
         icon: "success"
         });
     </script>

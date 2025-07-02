@@ -15,4 +15,5 @@ class Songs extends Model
     {
         return $this->belongsTo(Artists::class,'id');
     }
+
 }

@@ -30,6 +30,7 @@ Route::post('/songs/{id}', [UserController::class, 'songs'])->name('songs');
 Route::post('/genre/{id}', [GenreController::class, 'index'])->name('genre.artist');
 Route::post('/add/{id}', [PlaylistController::class, 'add'])->name('add.songs');
 Route::post('/playlist/delete/{id}', [PlaylistController::class, 'delete'])->name('playlist.delete');
+Route::post('/playlist/songs/delete/{id}', [PlaylistController::class, 'songsDelete'])->name('playlist.songs.delete');
 Route::post('/create/playlist', [PlaylistController::class, 'store'])->name('create.playlist.store');
 
 require __DIR__.'/auth.php';

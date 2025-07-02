@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PlaylistSongs;
+use App\Models\Songs;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Playlist extends Model
@@ -22,4 +23,5 @@ class Playlist extends Model
     {
         return $this->hasMany(PlaylistSongs::class,'id');
     }
+
 }

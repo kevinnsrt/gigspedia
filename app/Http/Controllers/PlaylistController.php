@@ -45,13 +45,13 @@ class PlaylistController extends Controller
 
         $songs = PlaylistSongs::where('id_lagu',$request->id)->get();
 
-        if (!$songs) {
+        if ($songs->isEmpty()) {
             $playlist = PlaylistSongs::create([
             'id_lagu'=>$request->id,
             'id_playlist'=> $request->id_playlist,
         ]);
 
-        return redirect()->route('playlist');
+        return redirect()->route('playlist')->with('lagu','Lagu sudah berhasil ditambahkan');
         }
         else{
             return redirect()->route('user.artists')->with('error','Lagu sudah ada di playlist');
@@ -62,6 +62,11 @@ class PlaylistController extends Controller
         $playlist = Playlist::where('id',$id)->delete();
 
         return redirect()->route('playlist')->with('delete','Playlist Berhasil Dihapus');
+    }
+
+    public function songsDelete($id){
+        $songs = PlaylistSongs::where('id_lagu',$id)->delete();
+        return redirect()->route('playlist')->with('deleteLagu','Lagu Berhasil Dihapus');
     }
 
 }
