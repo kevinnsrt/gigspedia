@@ -15,6 +15,7 @@ class Playlist extends Model
         'id_user',
         'name',
         'gambar',
+        'deskripsi'
     ];
 
     public $timestamps = false;

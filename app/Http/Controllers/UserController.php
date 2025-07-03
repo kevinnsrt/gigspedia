@@ -33,4 +33,10 @@ class UserController extends Controller
         $playlists = Playlist::all();
         return view('user.playlist',compact('playlists'));
     }
+
+    public function search (Request $request){
+        $results = Artists::where('name',$request->search)->get();
+
+        return view('user.search',compact('results'));
+    }
 }

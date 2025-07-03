@@ -17,6 +17,7 @@ class PlaylistController extends Controller
     public function store(Request $request){
     $validate = $request->validate([
             'name'=>'required|max:255',
+            'deskripsi'=> 'required|max:255'
     ]);
 
      $path = $request->file('gambar')->store('playlists', 'public');
@@ -25,6 +26,7 @@ class PlaylistController extends Controller
             'id_user' => Auth::user()->id,
             'name' => $request->name,
             'gambar' => $path,
+            'deskripsi'=>$request->deskripsi
     ]);
 
     return redirect()->route('playlist')->with('success','Playlist berhasil dibuat');
